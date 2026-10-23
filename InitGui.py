@@ -24,18 +24,20 @@ class CurvedShapesWB (Workbench):
         # import here all the needed files that create your FreeCAD commands
         import CurvedShapes 
         import CurvedSegment
-        import CurvedArray   
-        import CurvedPathArray   
+        import CurvedArray
+        import CurvedRailsArray
+        import CurvedPathArray
         import InterpolatedMiddle 
         import Horten_HIX
         import FlyingWingS800
         import FishingLure
+        import Propeller
         import SurfaceCut
         import NotchConnector
         from PySide.QtCore import QT_TRANSLATE_NOOP
 
-        self.examples = ['Horten_HIX', 'FlyingWingS800', 'FishingLure'] # A list of command names created in the line above
-        self.list = ['CurvedArray', 'CurvedPathArray', 'CurvedSegment', 'CurvedPathSegment', 'InterpolatedMiddle', 'SurfaceCut', 'NotchConnector'] # A list of command names created in the line above
+        self.examples = ['Horten_HIX', 'FlyingWingS800', 'FishingLure', 'Propeller'] # A list of command names created in the line above
+        self.list = ['CurvedArray', 'CurvedRailsArray', 'CurvedPathArray', 'CurvedSegment', 'CurvedPathSegment', 'InterpolatedMiddle', 'SurfaceCut', 'NotchConnector'] # A list of command names created in the line above
         self.appendToolbar(QT_TRANSLATE_NOOP('Curved Shapes', 'Curved Shapes'), self.list) # creates a new toolbar with your commands
         self.appendMenu(QT_TRANSLATE_NOOP('Curved Shapes', 'Curved Shapes'), self.list) # creates a new menu 'Curved Functions'
         self.appendMenu('Curved Shapes', 'Separator') # creates a new menu separator

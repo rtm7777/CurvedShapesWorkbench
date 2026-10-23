@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="64"
+   id="svg2869"
+   version="1.1"
+   viewBox="0 0 64 64"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2871">
+    <linearGradient
+       id="bladeTeGrad0"
+       x1="29.309"
+       y1="33.750"
+       x2="24.309"
+       y2="52.590"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         style="stop-color:#5f8dc2;stop-opacity:1"
+         offset="0.000"
+         id="bladeTeGrad0-s0" />
+      <stop
+         style="stop-color:#78a3d2;stop-opacity:1"
+         offset="0.500"
+         id="bladeTeGrad0-s1" />
+      <stop
+         style="stop-color:#77a3d2;stop-opacity:1"
+         offset="1.000"
+         id="bladeTeGrad0-s2" />
+    </linearGradient>
+    <linearGradient
+       id="bladeLeGrad0"
+       x1="29.309"
+       y1="33.750"
+       x2="24.309"
+       y2="52.590"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         style="stop-color:#75a1d1;stop-opacity:1"
+         offset="0.000"
+         id="bladeLeGrad0-s0" />
+      <stop
+         style="stop-color:#73a0d0;stop-opacity:1"
+         offset="0.500"
+         id="bladeLeGrad0-s1" />
+      <stop
+         style="stop-color:#6391c5;stop-opacity:1"
+         offset="1.000"
+         id="bladeLeGrad0-s2" />
+    </linearGradient>
+    <linearGradient
+       id="bladeTeGrad1"
+       x1="31.907"
+       y1="30.063"
+       x2="54.326"
+       y2="24.190"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         style="stop-color:#204a87;stop-opacity:1"
+         offset="0.000"
+         id="bladeTeGrad1-s0" />
+      <stop
+         style="stop-color:#2b5896;stop-opacity:1"
+         offset="0.500"
+         id="bladeTeGrad1-s1" />
+      <stop
+         style="stop-color:#4071ad;stop-opacity:1"
+         offset="1.000"
+         id="bladeTeGrad1-s2" />
+    </linearGradient>
+    <linearGradient
+       id="bladeLeGrad1"
+       x1="31.907"
+       y1="30.063"
+       x2="54.326"
+       y2="24.190"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         style="stop-color:#275391;stop-opacity:1"
+         offset="0.000"
+         id="bladeLeGrad1-s0" />
+      <stop
+         style="stop-color:#4d7cb5;stop-opacity:1"
+         offset="0.500"
+         id="bladeLeGrad1-s1" />
+      <stop
+         style="stop-color:#6d9acb;stop-opacity:1"
+         offset="1.000"
+         id="bladeLeGrad1-s2" />
+    </linearGradient>
+    <linearGradient
+       id="bladeTeGrad2"
+       x1="26.711"
+       y1="30.063"
+       x2="9.292"
+       y2="17.096"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         style="stop-color:#204a87;stop-opacity:1"
+         offset="0.000"
+         id="bladeTeGrad2-s0" />
+      <stop
+         style="stop-color:#6492c5;stop-opacity:1"
+         offset="0.500"
+         id="bladeTeGrad2-s1" />
+      <stop
+         style="stop-color:#6c99cb;stop-opacity:1"
+         offset="1.000"
+         id="bladeTeGrad2-s2" />
+    </linearGradient>
+    <linearGradient
+       id="bladeLeGrad2"
+       x1="26.711"
+       y1="30.063"
+       x2="9.292"
+       y2="17.096"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         style="stop-color:#608fc3;stop-opacity:1"
+         offset="0.000"
+         id="bladeLeGrad2-s0" />
+      <stop
+         style="stop-color:#6c99cb;stop-opacity:1"
+         offset="0.500"
+         id="bladeLeGrad2-s1" />
+      <stop
+         style="stop-color:#6593c6;stop-opacity:1"
+         offset="1.000"
+         id="bladeLeGrad2-s2" />
+    </linearGradient>
+    <radialGradient
+       id="hubGrad"
+       cx="26.684"
+       cy="28.292"
+       fx="26.684"
+       fy="28.292"
+       r="10.125"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         style="stop-color:#eeeeec;stop-opacity:1"
+         offset="0.000"
+         id="hubGrad-s0" />
+      <stop
+         style="stop-color:#b6b9b2;stop-opacity:1"
+         offset="0.450"
+         id="hubGrad-s1" />
+      <stop
+         style="stop-color:#555753;stop-opacity:1"
+         offset="1.000"
+         id="hubGrad-s2" />
+    </radialGradient>
+  </defs>
+  <metadata
+     id="metadata2874">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>CurvedShapes contributors</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:relation>https://www.freecad.org/wiki/index.php?title=Artwork</dc:relation>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>FreeCAD</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:identifier>FreeCAD/src/</dc:identifier>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>FreeCAD LGPL2+</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date>2026</dc:date>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer3"
+     style="display:inline">
+    <path
+       style="fill:url(#bladeTeGrad2);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="blade2"
+       d="M 26.137,29.938 C 25.479,29.721 23.464,29.038 22.185,28.638 C 20.907,28.239 19.634,27.943 18.464,27.539 C 17.295,27.136 16.175,26.755 15.166,26.218 C 14.158,25.680 13.273,25.050 12.413,24.312 C 11.553,23.574 10.781,22.683 10.007,21.789 C 9.232,20.896 8.139,19.426 7.766,18.953 C 8.275,18.334 10.310,15.858 10.819,15.239 C 11.336,15.596 12.903,16.632 13.924,17.379 C 14.945,18.125 15.959,18.885 16.944,19.717 C 17.928,20.550 18.923,21.440 19.829,22.372 C 20.736,23.303 21.548,24.369 22.384,25.307 C 23.220,26.244 24.027,27.184 24.844,27.998 C 25.661,28.812 26.878,29.824 27.284,30.189 C 27.093,30.147 26.329,29.980 26.137,29.938 Z" />
+    <path
+       style="fill:url(#bladeLeGrad2);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="bladeLe2"
+       d="M 26.137,29.938 C 25.479,29.721 23.464,29.038 22.185,28.638 C 20.907,28.239 19.634,27.943 18.464,27.539 C 17.295,27.136 16.175,26.755 15.166,26.218 C 14.158,25.680 13.273,25.050 12.413,24.312 C 11.553,23.574 10.781,22.683 10.007,21.789 C 9.232,20.896 8.139,19.426 7.766,18.953 C 7.989,18.622 8.879,17.298 9.102,16.967 C 9.544,17.363 10.856,18.568 11.752,19.346 C 12.647,20.124 13.540,20.906 14.476,21.636 C 15.411,22.366 16.379,23.041 17.366,23.725 C 18.354,24.409 19.366,25.082 20.401,25.740 C 21.435,26.399 22.511,27.020 23.575,27.677 C 24.639,28.333 26.248,29.346 26.783,29.679 C 26.675,29.722 26.245,29.895 26.137,29.938 Z" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#0b1523;stroke-width:1.0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="bladeOutline2"
+       d="M 26.137,29.938 C 25.479,29.721 23.464,29.038 22.185,28.638 C 20.907,28.239 19.634,27.943 18.464,27.539 C 17.295,27.136 16.175,26.755 15.166,26.218 C 14.158,25.680 13.273,25.050 12.413,24.312 C 11.553,23.574 10.781,22.683 10.007,21.789 C 9.232,20.896 8.139,19.426 7.766,18.953 C 8.275,18.334 10.310,15.858 10.819,15.239 C 11.336,15.596 12.903,16.632 13.924,17.379 C 14.945,18.125 15.959,18.885 16.944,19.717 C 17.928,20.550 18.923,21.440 19.829,22.372 C 20.736,23.303 21.548,24.369 22.384,25.307 C 23.220,26.244 24.027,27.184 24.844,27.998 C 25.661,28.812 26.878,29.824 27.284,30.189 C 27.093,30.147 26.329,29.980 26.137,29.938 Z" />
+    <path
+       style="fill:url(#bladeTeGrad1);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="blade1"
+       d="M 31.333,28.310 C 31.781,27.794 33.087,26.105 34.021,25.217 C 34.955,24.328 35.896,23.562 36.940,22.979 C 37.983,22.397 39.077,21.979 40.281,21.719 C 41.486,21.460 42.814,21.459 44.167,21.421 C 45.521,21.383 46.962,21.442 48.401,21.491 C 49.839,21.540 52.066,21.678 52.799,21.716 C 53.308,22.541 55.343,25.840 55.852,26.665 C 55.263,26.920 53.510,27.691 52.317,28.194 C 51.125,28.697 49.927,29.197 48.698,29.683 C 47.469,30.168 46.251,30.741 44.944,31.105 C 43.638,31.469 42.236,31.699 40.859,31.868 C 39.482,32.038 38.076,32.129 36.680,32.121 C 35.283,32.112 33.180,31.868 32.481,31.817 C 32.289,31.232 31.525,28.894 31.333,28.310 Z" />
+    <path
+       style="fill:url(#bladeLeGrad1);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="bladeLe1"
+       d="M 31.333,28.310 C 31.781,27.794 33.087,26.105 34.021,25.217 C 34.955,24.328 35.896,23.562 36.940,22.979 C 37.983,22.397 39.077,21.979 40.281,21.719 C 41.486,21.460 42.814,21.459 44.167,21.421 C 45.521,21.383 46.962,21.442 48.401,21.491 C 49.839,21.540 52.066,21.678 52.799,21.716 C 53.022,22.017 53.913,23.220 54.135,23.520 C 53.470,23.600 51.463,23.819 50.146,23.999 C 48.828,24.178 47.507,24.353 46.230,24.598 C 44.953,24.843 43.707,25.123 42.481,25.469 C 41.255,25.815 40.054,26.220 38.876,26.675 C 37.697,27.130 36.560,27.664 35.411,28.199 C 34.261,28.734 32.551,29.603 31.979,29.884 C 31.872,29.621 31.441,28.572 31.333,28.310 Z" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#0b1523;stroke-width:1.0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="bladeOutline1"
+       d="M 31.333,28.310 C 31.781,27.794 33.087,26.105 34.021,25.217 C 34.955,24.328 35.896,23.562 36.940,22.979 C 37.983,22.397 39.077,21.979 40.281,21.719 C 41.486,21.460 42.814,21.459 44.167,21.421 C 45.521,21.383 46.962,21.442 48.401,21.491 C 49.839,21.540 52.066,21.678 52.799,21.716 C 53.308,22.541 55.343,25.840 55.852,26.665 C 55.263,26.920 53.510,27.691 52.317,28.194 C 51.125,28.697 49.927,29.197 48.698,29.683 C 47.469,30.168 46.251,30.741 44.944,31.105 C 43.638,31.469 42.236,31.699 40.859,31.868 C 39.482,32.038 38.076,32.129 36.680,32.121 C 35.283,32.112 33.180,31.868 32.481,31.817 C 32.289,31.232 31.525,28.894 31.333,28.310 Z" />
+    <path
+       style="fill:url(#bladeTeGrad0);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="blade0"
+       d="M 30.456,32.810 C 30.667,33.229 31.376,34.398 31.720,35.324 C 32.065,36.250 32.396,37.289 32.523,38.366 C 32.649,39.443 32.675,40.614 32.479,41.785 C 32.283,42.956 31.840,44.211 31.347,45.393 C 30.853,46.575 30.184,47.729 29.520,48.877 C 28.855,50.025 27.721,51.714 27.362,52.281 C 26.344,52.384 22.274,52.796 21.256,52.899 C 21.328,52.420 21.514,50.969 21.686,50.023 C 21.857,49.078 22.041,48.138 22.285,47.227 C 22.530,46.315 22.754,45.477 23.154,44.555 C 23.553,43.633 24.143,42.710 24.684,41.694 C 25.226,40.677 25.824,39.623 26.403,38.456 C 26.983,37.288 27.869,35.317 28.162,34.689 C 28.544,34.376 30.074,33.123 30.456,32.810 Z" />
+    <path
+       style="fill:url(#bladeLeGrad0);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="bladeLe0"
+       d="M 30.456,32.810 C 30.667,33.229 31.376,34.398 31.720,35.324 C 32.065,36.250 32.396,37.289 32.523,38.366 C 32.649,39.443 32.675,40.614 32.479,41.785 C 32.283,42.956 31.840,44.211 31.347,45.393 C 30.853,46.575 30.184,47.729 29.520,48.877 C 28.855,50.025 27.721,51.714 27.362,52.281 C 26.917,52.266 25.135,52.206 24.690,52.191 C 24.913,51.644 25.608,50.000 26.029,48.909 C 26.451,47.818 26.880,46.726 27.221,45.644 C 27.563,44.561 27.841,43.468 28.080,42.413 C 28.318,41.358 28.507,40.327 28.650,39.314 C 28.794,38.301 28.855,37.309 28.941,36.334 C 29.027,35.360 29.128,33.945 29.165,33.468 C 29.380,33.358 30.241,32.920 30.456,32.810 Z" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#0b1523;stroke-width:1.0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="bladeOutline0"
+       d="M 30.456,32.810 C 30.667,33.229 31.376,34.398 31.720,35.324 C 32.065,36.250 32.396,37.289 32.523,38.366 C 32.649,39.443 32.675,40.614 32.479,41.785 C 32.283,42.956 31.840,44.211 31.347,45.393 C 30.853,46.575 30.184,47.729 29.520,48.877 C 28.855,50.025 27.721,51.714 27.362,52.281 C 26.344,52.384 22.274,52.796 21.256,52.899 C 21.328,52.420 21.514,50.969 21.686,50.023 C 21.857,49.078 22.041,48.138 22.285,47.227 C 22.530,46.315 22.754,45.477 23.154,44.555 C 23.553,43.633 24.143,42.710 24.684,41.694 C 25.226,40.677 25.824,39.623 26.403,38.456 C 26.983,37.288 27.869,35.317 28.162,34.689 C 28.544,34.376 30.074,33.123 30.456,32.810 Z" />
+    <path
+       style="fill:url(#hubGrad);fill-opacity:1;fill-rule:evenodd;stroke:#0b1523;stroke-width:1.0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="hub"
+       d="M 36.809,31.292 C 36.809,35.434 33.451,38.792 29.309,38.792 C 25.167,38.792 21.809,35.434 21.809,31.292 C 21.809,27.150 25.167,23.792 29.309,23.792 C 33.451,23.792 36.809,27.150 36.809,31.292 Z" />
+  </g>
+</svg>

@@ -77,6 +77,40 @@ Zwite Möglichkeit: Für Offset Start und/oder Offset End größere Werte eingeb
 
 Array Elemente aus Curved Array extrahieren (funktioniert nur, wenn Surface und Solid false sind): In der Part workbench, Menü Formteil -> Flächenverbund -> Verbundteile extrahieren 
   
+
+### ![](./Resources/icons/CurvedRailsArray.svg) Curved Rails Array
+Erstellt mehrere Kopien von einem Profil (Base), das zwischen zwei 3D Kurven (Rails) aufgespannt wird, z.B. zwischen der Vorder- und der Hinterkante eines verdrehten Propellerblatts.  
+An jedem Array Element liefern die Rails zwei Punkte. Die Sehne des Profils (bei einem Flügelprofil von der Nase bis zur Endleiste) wird so skaliert und gedreht, dass sie genau von der ersten bis zur zweiten Rail reicht. Position, Größe und Verdrehung der Elemente ergeben sich dadurch aus den Rails. Anders als die Hüllkurven von Curved Array müssen die Rails nicht in der XY, XZ oder YZ Ebene liegen, und es gibt keinen Twist Parameter.
+
+Zuerst das Profil auswählen, danach die beiden Rails (oder ein Objekt, das zwei getrennte Kurven enthält). Dann ein Curved Rails Array Objekt erstellen.
+
+Die Sehne des Profils wird automatisch bestimmt: ausgehend von der X Achse des Profils (der Horizontalen einer Skizze) ist es die Linie vom äußersten linken bis zum äußersten rechten Punkt des Profils. Der linke Punkt liegt auf der ersten Rail. Liegt das Profil verkehrt herum, SwapRails umschalten. Das Profil muss nicht an den Rails liegen.
+
+#### Modi
+- 2D: wie bei Curved Array liegen alle Elemente in Ebenen rechtwinklig zu Axis. Geeignet für Propellerblätter und Flügel, deren Schnitte entlang einer geraden Achse liegen.
+- 3D: die Elemente folgen den Rails. Jedes Element steht rechtwinklig zu den Rails und kippt mit, wo die Rails sich biegen, z.B. wenn beide Rails zu einem Winglet nach oben gehen.
+
+#### Parameters
+- Base: Das Profil
+- Rails: Zwei Kurven, an denen die Enden der Profilsehne entlang laufen (z.B. Vorder- und Hinterkante). Eine Rail darf aus mehreren verbundenen Kanten bestehen.
+- Mode: 2D oder 3D, siehe oben
+- Axis: Richtung des Arrays, das erste Element liegt am negativen Ende. Wird automatisch berechnet, wenn 0,0,0: die Normale von Base, wenn die Rails ungefähr in diese Richtung verlaufen, sonst die Richtung der Rails.
+- Items: Anzahl der Array Elemente
+- Positions: Position jedes Elements (Werte von 0.0 bis 1.0) -- ersetzt Items
+- OffsetStart: Abstand des ersten Array Elements vom Anfang der Rails (entlang Axis im 2D Modus, entlang der Rails im 3D Modus)
+- OffsetEnd: Abstand des letzten Array Elements vom Ende der Rails
+- ScaleThickness: true: die Dicke des Profils wird mit der Sehne skaliert, ein Flügelprofil behält also seine relative Dicke. false: nur die Sehne wird gestreckt, die Dicke von Base bleibt erhalten.
+- SwapRails: Das andere Ende der Profilsehne an die erste Rail legen
+- Surface: Eine Oberfläche erstellen
+- Solid: Einen Festkörper erstellen (funktioniert nur, wenn Base eine geschlossene Form ist)
+- Distribution: Algorithmus zur Berechnung der Distanz zwischen den Elementen, siehe Curved Array
+- DistributionReverse: Kehrt die Richtung des Distribution Algorithmus um
+- LoftMaxDegree: Gradzahl für die Erstellung von Oberflächen und Festkörpern
+- MaxLoftSize: Maximale Anzahl von Elementen für die Erstellung von Oberfächen und Festkörpern
+- KeepBase: Basisobjekt unverändert als erstes oder letztes Array Element benutzen
+
+Wo sich die Rails berühren (z.B. an einer spitzen Blattspitze), kann kein Element erzeugt werden. Mit OffsetStart / OffsetEnd kann man solche Stellen vermeiden.
+  
 ### ![curvedPathArrayIcon](./Resources/icons/CurvedPathArray.svg) Curved Path Array
 Erstellt mehrere Kopien von einem Basisobject (Base) und ordnet diese rechwinklig zu einer Kurve (Path) an. Optional können Größe und Position innerhalb von einer oder mehreren Hüllkurven (Hullcurves) ausgerichtet werden.  
 Ein Twist Parameter lässt die Elemente um die Path Kurve rotieren.  

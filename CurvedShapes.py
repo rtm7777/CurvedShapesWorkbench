@@ -376,6 +376,32 @@ def makeCurvedPathArray(Base = None,
     return obj
 
 
+def makeCurvedRailsArray(Base=None,
+                         Rails=[],
+                         Mode='2D',
+                         Axis=Vector(0,0,0),
+                         Items=8,
+                         Positions=[],
+                         OffsetStart=0,
+                         OffsetEnd=0,
+                         ScaleThickness=True,
+                         SwapRails=False,
+                         Surface=False,
+                         Solid=False,
+                         Distribution='linear',
+                         DistributionReverse=False,
+                         LoftMaxDegree=5,
+                         MaxLoftSize=16,
+                         KeepBase='None'):
+    import CurvedRailsArray
+    obj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython","CurvedRailsArray")
+    CurvedRailsArray.CurvedRailsArray(obj, Base, Rails, Mode, Axis, Items, Positions, OffsetStart, OffsetEnd, ScaleThickness, SwapRails, Surface, Solid, Distribution, DistributionReverse, LoftMaxDegree, MaxLoftSize, KeepBase)
+    if FreeCAD.GuiUp:
+        CurvedRailsArray.CurvedRailsArrayViewProvider(obj.ViewObject)
+    FreeCAD.ActiveDocument.recompute()
+    return obj
+
+
 def makeCurvedSegment(Shape1 = None, 
                       Shape2 = None, 
                     Hullcurves=[], 

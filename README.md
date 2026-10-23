@@ -83,6 +83,40 @@ If you create a surface or solid and it looks weird, this may be caused by very 
 To resolve a CurvedArray item to a compound of single objects, go to the Part workbench. In the [Part workbench](https://www.freecadweb.org/wiki/Part_Workbench), select **Part → Compound → [Explode compound](https://www.freecadweb.org/wiki/Part_ExplodeCompound)**
   
 
+### ![curvedRailsArrayIcon](./Resources/icons/CurvedRailsArray.svg) Curved Rails Array
+Creates an array of a profile that is stretched between two 3D rail curves, for example the leading and trailing edge of a twisted propeller blade.  
+At every array item the rails give two points. The chord of the profile (for an airfoil: from the leading edge to the trailing edge) is scaled and rotated so that it spans exactly from the first rail to the second rail. Position, size and twist of the items therefore come from the rails. Unlike the hullcurves of Curved Array, the rails do not have to lie in the XY, XZ or YZ plane, and there is no Twist parameter.
+
+Select the profile first, then the two rails (or one object that contains two separate curves). Then create the Curved Rails Array.
+
+The chord of the profile is found automatically. Starting with the X axis of the profile (the horizontal axis of a sketch), it is the line from the leftmost to the rightmost point of the profile. The leftmost point is attached to the first rail. If the profile ends up the wrong way round, toggle SwapRails. The profile does not have to be placed at the rails.
+
+#### Modes
+- 2D: like Curved Array, all items lie in planes perpendicular to Axis. Use this for propeller blades and wings whose sections are taken along a straight axis.
+- 3D: the items follow the rails. Each item stands perpendicular to the rails and tilts where the rails bend, e.g. when both rails go up into a winglet.
+
+#### Parameters
+- Base: The profile to make an array from
+- Rails: Two curves the ends of the profile chord follow (e.g. leading and trailing edge). A rail may consist of several connected edges.
+- Mode: 2D or 3D, see above
+- Axis: Direction of the array, the first item is at the negative end. Computed automatically if 0,0,0: the normal of Base if the rails run roughly in that direction, otherwise the direction of the rails.
+- Items: Nr. of array items
+- Positions: Array of positions for each item (as floats from 0.0 to 1.0) -- overrides Items
+- OffsetStart: Offset of the first item from the start of the rails (along Axis in 2D mode, along the rails in 3D mode)
+- OffsetEnd: Offset of the last item from the end of the rails
+- ScaleThickness: If true, the thickness of the profile scales with its chord, so an airfoil keeps its relative thickness. If false, only the chord is stretched and the thickness of Base is kept.
+- SwapRails: Attach the other end of the profile chord to the first rail
+- Surface: make a surface over the array items
+- Solid: make a solid if Base is a closed shape
+- Distribution: Algorithm for distance between array elements, see Curved Array
+- DistributionReverse: Reverses the direction of the Distribution algorithm
+- LoftMaxDegree: degree for surface or solid creation. Play with this parameter if your surface or solid looks distorted
+- MaxLoftSize: Maximum size of a loft segment, see Curved Array
+- KeepBase: use the unmodified Base object as the first or last array item
+
+Where the rails touch each other (e.g. at a pointed blade tip) no item can be created. Use OffsetStart / OffsetEnd to stay away from such points.
+  
+
 ### ![curvedPathArrayIcon](./Resources/icons/CurvedPathArray.svg) Curved Path Array
 Creates an array, sweeps the elements around a path curve, and resizes the items in the bounds of optional hullcurves.  
 The items created will be perpendicular to the sweep path.  
