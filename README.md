@@ -87,16 +87,33 @@ To resolve a CurvedArray item to a compound of single objects, go to the Part wo
 Creates an array of a profile that is stretched between two 3D rail curves, for example the leading and trailing edge of a twisted propeller blade.  
 At every array item the rails give two points. The chord of the profile (for an airfoil: from the leading edge to the trailing edge) is scaled and rotated so that it spans exactly from the first rail to the second rail. Position, size and twist of the items therefore come from the rails. Unlike the hullcurves of Curved Array, the rails do not have to lie in the XY, XZ or YZ plane, and there is no Twist parameter.
 
-Select the profile first, then the two rails (or one object that contains two separate curves). Then create the Curved Rails Array.
+Select the profile first, then the two rails (or one object that contains two separate curves). Then create the Curved Rails Array. To blend several profiles, select all of them first, see below.
 
 The chord of the profile is found automatically. Starting with the X axis of the profile (the horizontal axis of a sketch), it is the line from the leftmost to the rightmost point of the profile. The leftmost point is attached to the first rail. If the profile ends up the wrong way round, toggle SwapRails. The profile does not have to be placed at the rails.
+
+If the rails touch the profile where its item meets them, the item there is exactly the profile as it is placed, and SwapRails has no effect on it. In 2D mode this is the case when the leading and trailing edge points of the sketch lie on the rails and the sketch lies in a plane perpendicular to Axis. In 3D mode the two points must also be at the same fraction of the length of each rail - always true at the ends of the rails, usually not in between. The Report view tells whether the rails touch a profile.
+
+#### Several profiles
+A blade often needs different profiles along its span, e.g. a thick airfoil at the root and a thin one at the tip, or a round shank at the hub that turns into an airfoil. Select all profiles first, then the rails. The first profile becomes Base, the others go to Profiles. The items in between get a shape blended from the profiles next to them.
+
+The position of a profile is taken from where it is placed: put the profiles across the rails where you want them along the blade, in any order. Profiles that are not placed at the rails (e.g. sketches left at the origin) are spaced evenly between their neighbours in the order Base, Profiles - if no profile is placed, from the start to the end of the array. A profile without room between its neighbours (e.g. one added after the tip profile) goes into the largest gap. A profile beyond the end of the array applies at the first or last item. The Report view lists the position of every profile in the order Base, Profiles - the order of ProfilePositions -, how it is used and whether the profiles are blended edge by edge or resampled. Use ProfilePositions to set the positions by hand.
+
+How a profile is used:
+- If the rails touch the profile where its item meets them (see above), the item at that position is exactly the profile as it is placed (resampled profiles, see below, up to the resampling).
+- Otherwise the rails win: the profile is stretched between the rails like Base and only its shape is used, so the profiles do not have to be placed precisely. It is turned so that its thick end and its camber point the same way as those of the nearest profile that has them. A profile with neither (e.g. a round shank) cannot show the way: without a touched profile that has a thick end or camber, Base is attached as described above (SwapRails) and the other profiles follow Base.
+
+Profiles that are copies of one sketch with other dimensions (same edges) are blended exactly, circles and arcs included. Profiles with different edges (e.g. a circle and an airfoil) are split at their leading and trailing edge and resampled with InterpolationPoints points per side, this slightly rounds sharp corners. When profiles are blended, a small gap, e.g. an open trailing edge, is closed with a straight line. All profiles must be either closed or open. Profiles with holes (e.g. for a spar) or of separate elements (e.g. an airfoil with a flap) can be blended if they all have the same edges; a solid then gets the holes cut out, separate elements become separate solids.
 
 #### Modes
 - 2D: like Curved Array, all items lie in planes perpendicular to Axis. Use this for propeller blades and wings whose sections are taken along a straight axis.
 - 3D: the items follow the rails. Each item stands perpendicular to the rails and tilts where the rails bend, e.g. when both rails go up into a winglet.
 
 #### Parameters
-- Base: The profile to make an array from
+- Base: The profile to make an array from, the first profile if there are several
+- Profiles: Further profiles, e.g. in the middle and at the tip. Each one applies where it is placed along the rails, the items in between are blended. To add a tip profile to an existing array, add it here.
+- ProfilePositions: Position of every profile: Base first, then Profiles, on the same scale as Positions (0.0 = start, 1.0 = end of the array; without Positions the first and the last item). Empty: taken from where the profiles are placed, see the Report view
+- ProfileBlend: How the shape changes between more than two profiles. smooth: smooth curves through all profiles, without overshooting between them. linear: straight from one profile to the next
+- InterpolationPoints: Only for profiles that cannot be blended edge by edge (e.g. a circle and an airfoil): they are resampled with this number of points per side (at most 1000)
 - Rails: Two curves the ends of the profile chord follow (e.g. leading and trailing edge). A rail may consist of several connected edges.
 - Mode: 2D or 3D, see above
 - Axis: Direction of the array, the first item is at the negative end. Computed automatically if 0,0,0: the normal of Base if the rails run roughly in that direction, otherwise the direction of the rails.
@@ -104,15 +121,15 @@ The chord of the profile is found automatically. Starting with the X axis of the
 - Positions: Array of positions for each item (as floats from 0.0 to 1.0) -- overrides Items
 - OffsetStart: Offset of the first item from the start of the rails (along Axis in 2D mode, along the rails in 3D mode)
 - OffsetEnd: Offset of the last item from the end of the rails
-- ScaleThickness: If true, the thickness of the profile scales with its chord, so an airfoil keeps its relative thickness. If false, only the chord is stretched and the thickness of Base is kept.
-- SwapRails: Attach the other end of the profile chord to the first rail
+- ScaleThickness: If true, the thickness of the profile scales with its chord, so an airfoil keeps its relative thickness. If false, only the chord is stretched and the thickness of Base is kept (with several profiles: their thickness, blended in between).
+- SwapRails: Attach the other end of the profile chord to the first rail. No effect on profiles the rails touch, nor on profiles that follow a touched profile with a thick end or camber
 - Surface: make a surface over the array items
 - Solid: make a solid if Base is a closed shape
 - Distribution: Algorithm for distance between array elements, see Curved Array
-- DistributionReverse: Reverses the direction of the Distribution algorithm
+- DistributionReverse: Reverses the direction of the Distribution algorithm (the items still run from the start to the end of the rails)
 - LoftMaxDegree: degree for surface or solid creation. Play with this parameter if your surface or solid looks distorted
 - MaxLoftSize: Maximum size of a loft segment, see Curved Array
-- KeepBase: use the unmodified Base object as the first or last array item
+- KeepBase: use the unmodified Base object as the item at the start (First) or at the end (Last) of the rails (with several profiles: the profile at that end of the rails)
 
 Where the rails touch each other (e.g. at a pointed blade tip) no item can be created. Use OffsetStart / OffsetEnd to stay away from such points.
   
@@ -251,6 +268,9 @@ A python script that creates the shape of the [Horten Ho 229 (also called Horten
 A python script that creates the shape of a flying wing RC model.  
   
 ![S800](Examples/S800.jpg)
+
+### ![Propeller_Icon](./Resources/icons/Propeller.svg) Propeller
+A three bladed propeller made with Curved Rails Array. The leading and trailing edge of a blade are 3D curves that give the twist of the blade. A thick airfoil sketch at the hub and a thin one at the tip are placed where the rails touch them, the airfoils in between are blended.
 
 ### Faster Better Corsair |JOKO ENGINEERING|
 [!["FreeCAD Curved Surfaces Workbench in Action: Faster Better Corsair |JOKO ENGINEERING|"](http://img.youtube.com/vi/tjT9gt0dArQ/0.jpg)](http://www.youtube.com/watch?v=tjT9gt0dArQ "FreeCAD Curved Surfaces Workbench in Action: Faster Better Corsair |JOKO ENGINEERING|") 

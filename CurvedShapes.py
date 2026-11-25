@@ -392,10 +392,15 @@ def makeCurvedRailsArray(Base=None,
                          DistributionReverse=False,
                          LoftMaxDegree=5,
                          MaxLoftSize=16,
-                         KeepBase='None'):
+                         KeepBase='None',
+                         Profiles=[],
+                         ProfilePositions=[],
+                         ProfileBlend='smooth',
+                         InterpolationPoints=64):
     import CurvedRailsArray
     obj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython","CurvedRailsArray")
-    CurvedRailsArray.CurvedRailsArray(obj, Base, Rails, Mode, Axis, Items, Positions, OffsetStart, OffsetEnd, ScaleThickness, SwapRails, Surface, Solid, Distribution, DistributionReverse, LoftMaxDegree, MaxLoftSize, KeepBase)
+    CurvedRailsArray.CurvedRailsArray(obj, Base, Rails, Mode, Axis, Items, Positions, OffsetStart, OffsetEnd, ScaleThickness, SwapRails, Surface, Solid, Distribution, DistributionReverse, LoftMaxDegree, MaxLoftSize, KeepBase,
+                                      Profiles=Profiles, ProfilePositions=ProfilePositions, ProfileBlend=ProfileBlend, InterpolationPoints=InterpolationPoints)
     if FreeCAD.GuiUp:
         CurvedRailsArray.CurvedRailsArrayViewProvider(obj.ViewObject)
     FreeCAD.ActiveDocument.recompute()

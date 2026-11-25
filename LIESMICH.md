@@ -82,16 +82,33 @@ Array Elemente aus Curved Array extrahieren (funktioniert nur, wenn Surface und 
 Erstellt mehrere Kopien von einem Profil (Base), das zwischen zwei 3D Kurven (Rails) aufgespannt wird, z.B. zwischen der Vorder- und der Hinterkante eines verdrehten Propellerblatts.  
 An jedem Array Element liefern die Rails zwei Punkte. Die Sehne des Profils (bei einem Flügelprofil von der Nase bis zur Endleiste) wird so skaliert und gedreht, dass sie genau von der ersten bis zur zweiten Rail reicht. Position, Größe und Verdrehung der Elemente ergeben sich dadurch aus den Rails. Anders als die Hüllkurven von Curved Array müssen die Rails nicht in der XY, XZ oder YZ Ebene liegen, und es gibt keinen Twist Parameter.
 
-Zuerst das Profil auswählen, danach die beiden Rails (oder ein Objekt, das zwei getrennte Kurven enthält). Dann ein Curved Rails Array Objekt erstellen.
+Zuerst das Profil auswählen, danach die beiden Rails (oder ein Objekt, das zwei getrennte Kurven enthält). Dann ein Curved Rails Array Objekt erstellen. Um mehrere Profile zu überblenden, zuerst alle Profile auswählen, siehe unten.
 
 Die Sehne des Profils wird automatisch bestimmt: ausgehend von der X Achse des Profils (der Horizontalen einer Skizze) ist es die Linie vom äußersten linken bis zum äußersten rechten Punkt des Profils. Der linke Punkt liegt auf der ersten Rail. Liegt das Profil verkehrt herum, SwapRails umschalten. Das Profil muss nicht an den Rails liegen.
+
+Berühren die Rails das Profil dort, wo sein Element auf sie trifft, ist das Element dort genau das Profil, so wie es platziert ist, und SwapRails hat darauf keine Wirkung. Im 2D Modus ist das der Fall, wenn die Punkte der Vorder- und Hinterkante der Skizze auf den Rails liegen und die Skizze in einer Ebene rechtwinklig zu Axis liegt. Im 3D Modus müssen die beiden Punkte zusätzlich beim selben Bruchteil der Länge jeder Rail liegen - an den Enden der Rails immer, dazwischen meist nicht. Das Ausgabefenster (Report view) zeigt, ob die Rails ein Profil berühren.
+
+#### Mehrere Profile
+Ein Blatt braucht oft verschiedene Profile entlang der Spannweite, z.B. ein dickes Flügelprofil an der Wurzel und ein dünnes an der Spitze, oder einen runden Schaft an der Nabe, der in ein Flügelprofil übergeht. Zuerst alle Profile auswählen, danach die Rails. Das erste Profil wird Base, die anderen kommen in Profiles. Die Elemente dazwischen erhalten eine Form, die aus den benachbarten Profilen überblendet wird.
+
+Die Position eines Profils ergibt sich daraus, wo es platziert ist: die Profile quer zu den Rails dort hinlegen, wo sie entlang des Blatts sein sollen, in beliebiger Reihenfolge. Profile, die nicht an den Rails liegen (z.B. Skizzen im Ursprung), werden gleichmäßig zwischen ihren Nachbarn in der Reihenfolge Base, Profiles verteilt - liegt kein Profil an den Rails, vom Anfang bis zum Ende des Arrays. Ein Profil ohne Platz zwischen seinen Nachbarn (z.B. eines, das nach dem Spitzenprofil hinzugefügt wurde) kommt in die größte Lücke. Ein Profil jenseits des Endes des Arrays gilt am ersten bzw. letzten Element. Das Ausgabefenster (Report view) zeigt die Position jedes Profils in der Reihenfolge Base, Profiles - der Reihenfolge von ProfilePositions -, wie es verwendet wird und ob die Profile Kante für Kante überblendet oder neu abgetastet werden. Mit ProfilePositions lassen sich die Positionen von Hand festlegen.
+
+So wird ein Profil verwendet:
+- Berühren die Rails das Profil dort, wo sein Element auf sie trifft (siehe oben), ist das Element an dieser Position genau das Profil, so wie es platziert ist (neu abgetastete Profile, siehe unten, bis auf das Abtasten).
+- Sonst gelten die Rails: das Profil wird wie Base zwischen die Rails gespannt, nur seine Form wird verwendet. Die Profile müssen also nicht genau platziert werden. Es wird so gedreht, dass sein dickes Ende und seine Wölbung in dieselbe Richtung zeigen wie beim nächstgelegenen Profil, das sie hat. Ein Profil ohne beides (z.B. ein runder Schaft) kann die Richtung nicht vorgeben: ohne ein berührtes Profil mit dickem Ende oder Wölbung wird Base wie oben beschrieben angelegt (SwapRails) und die anderen Profile folgen Base.
+
+Profile, die Kopien einer Skizze mit anderen Maßen sind (gleiche Kanten), werden exakt überblendet, auch Kreise und Bögen. Profile mit verschiedenen Kanten (z.B. ein Kreis und ein Flügelprofil) werden an Vorder- und Hinterkante geteilt und mit InterpolationPoints Punkten pro Seite neu abgetastet, dadurch werden scharfe Ecken leicht abgerundet. Beim Überblenden wird eine kleine Lücke, z.B. eine offene Hinterkante, mit einer geraden Linie geschlossen. Alle Profile müssen entweder geschlossen oder offen sein. Profile mit Löchern (z.B. für einen Holm) oder aus getrennten Teilen (z.B. ein Flügelprofil mit Klappe) lassen sich überblenden, wenn alle dieselben Kanten haben; ein Festkörper bekommt dann die Löcher ausgeschnitten, getrennte Teile werden getrennte Festkörper.
 
 #### Modi
 - 2D: wie bei Curved Array liegen alle Elemente in Ebenen rechtwinklig zu Axis. Geeignet für Propellerblätter und Flügel, deren Schnitte entlang einer geraden Achse liegen.
 - 3D: die Elemente folgen den Rails. Jedes Element steht rechtwinklig zu den Rails und kippt mit, wo die Rails sich biegen, z.B. wenn beide Rails zu einem Winglet nach oben gehen.
 
 #### Parameters
-- Base: Das Profil
+- Base: Das Profil, bei mehreren Profilen das erste
+- Profiles: Weitere Profile, z.B. in der Mitte und an der Spitze. Jedes gilt dort, wo es entlang der Rails platziert ist, die Elemente dazwischen werden überblendet. Um einem bestehenden Array ein Spitzenprofil hinzuzufügen, es hier eintragen.
+- ProfilePositions: Position jedes Profils: zuerst Base, dann Profiles, auf derselben Skala wie Positions (0.0 = Anfang, 1.0 = Ende des Arrays; ohne Positions erstes und letztes Element). Leer: ergibt sich daraus, wo die Profile platziert sind, siehe Ausgabefenster (Report view)
+- ProfileBlend: Wie sich die Form zwischen mehr als zwei Profilen ändert. smooth: glatte Kurven durch alle Profile, ohne Überschwingen zwischen ihnen. linear: gerade von einem Profil zum nächsten
+- InterpolationPoints: Nur für Profile, die sich nicht Kante für Kante überblenden lassen (z.B. ein Kreis und ein Flügelprofil): sie werden mit dieser Anzahl Punkte pro Seite neu abgetastet (höchstens 1000)
 - Rails: Zwei Kurven, an denen die Enden der Profilsehne entlang laufen (z.B. Vorder- und Hinterkante). Eine Rail darf aus mehreren verbundenen Kanten bestehen.
 - Mode: 2D oder 3D, siehe oben
 - Axis: Richtung des Arrays, das erste Element liegt am negativen Ende. Wird automatisch berechnet, wenn 0,0,0: die Normale von Base, wenn die Rails ungefähr in diese Richtung verlaufen, sonst die Richtung der Rails.
@@ -99,15 +116,15 @@ Die Sehne des Profils wird automatisch bestimmt: ausgehend von der X Achse des P
 - Positions: Position jedes Elements (Werte von 0.0 bis 1.0) -- ersetzt Items
 - OffsetStart: Abstand des ersten Array Elements vom Anfang der Rails (entlang Axis im 2D Modus, entlang der Rails im 3D Modus)
 - OffsetEnd: Abstand des letzten Array Elements vom Ende der Rails
-- ScaleThickness: true: die Dicke des Profils wird mit der Sehne skaliert, ein Flügelprofil behält also seine relative Dicke. false: nur die Sehne wird gestreckt, die Dicke von Base bleibt erhalten.
-- SwapRails: Das andere Ende der Profilsehne an die erste Rail legen
+- ScaleThickness: true: die Dicke des Profils wird mit der Sehne skaliert, ein Flügelprofil behält also seine relative Dicke. false: nur die Sehne wird gestreckt, die Dicke von Base bleibt erhalten (bei mehreren Profilen: deren Dicke, dazwischen überblendet).
+- SwapRails: Das andere Ende der Profilsehne an die erste Rail legen. Keine Wirkung auf Profile, die die Rails berühren, und auf Profile, die einem berührten Profil mit dickem Ende oder Wölbung folgen
 - Surface: Eine Oberfläche erstellen
 - Solid: Einen Festkörper erstellen (funktioniert nur, wenn Base eine geschlossene Form ist)
 - Distribution: Algorithmus zur Berechnung der Distanz zwischen den Elementen, siehe Curved Array
-- DistributionReverse: Kehrt die Richtung des Distribution Algorithmus um
+- DistributionReverse: Kehrt die Richtung des Distribution Algorithmus um (die Elemente laufen trotzdem vom Anfang zum Ende der Rails)
 - LoftMaxDegree: Gradzahl für die Erstellung von Oberflächen und Festkörpern
 - MaxLoftSize: Maximale Anzahl von Elementen für die Erstellung von Oberfächen und Festkörpern
-- KeepBase: Basisobjekt unverändert als erstes oder letztes Array Element benutzen
+- KeepBase: Basisobjekt unverändert als Element am Anfang (First) oder am Ende (Last) der Rails benutzen (bei mehreren Profilen: das Profil an diesem Ende der Rails)
 
 Wo sich die Rails berühren (z.B. an einer spitzen Blattspitze), kann kein Element erzeugt werden. Mit OffsetStart / OffsetEnd kann man solche Stellen vermeiden.
   
@@ -244,6 +261,9 @@ Als Basisobjekt wird ein Kreis verwendet. Mit PreservedAspectRatio = True bleibt
 
 
 ![FishingLure](Examples/FishingLure.jpg)
+
+### ![](./Resources/icons/Propeller.svg) Propeller
+Ein dreiblättriger Propeller, erstellt mit Curved Rails Array. Vorder- und Hinterkante eines Blatts sind 3D Kurven, aus denen sich die Verdrehung des Blatts ergibt. Eine Skizze mit dickem Flügelprofil an der Nabe und eine mit dünnem an der Spitze liegen dort, wo die Rails sie berühren, die Profile dazwischen werden überblendet.
 
 ### Faster Better Corsair |JOKO ENGINEERING|
 [!["FreeCAD Curved Surfaces Workbench in Action: Faster Better Corsair |JOKO ENGINEERING|"](http://img.youtube.com/vi/tjT9gt0dArQ/0.jpg)](http://www.youtube.com/watch?v=tjT9gt0dArQ "FreeCAD Curved Surfaces Workbench in Action: Faster Better Corsair |JOKO ENGINEERING|") 
